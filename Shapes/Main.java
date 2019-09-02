@@ -11,7 +11,6 @@ import shapes.Tetrahedron;
 public class Main {
 
 	public static void main(String args[]) {
-      int i= 0;
 		Scanner sc= new Scanner(System.in);
 		String selectedOption= preguntarFigura(sc);
 		
@@ -108,4 +107,4 @@ public class Main {
 	}
 
 }
-//salu2 desde spacemacs
+//figuras XD 
