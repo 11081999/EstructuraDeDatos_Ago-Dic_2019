@@ -1,10 +1,11 @@
 public class Factorial{
 
-  public Factorial(int number){
-    for (int i=0; i ; i++){
-      
-    }
-
+  public static int factorial(int number){
+      if (number <= 1){
+          return 1;
+      }else {
+          return number*factorial(number-1);
+      }
   }
 
 }
