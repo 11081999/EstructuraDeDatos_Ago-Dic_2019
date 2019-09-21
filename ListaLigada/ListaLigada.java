@@ -15,6 +15,7 @@ public class ListaLigada<T> {
     }
 
     public void insertarAlInicio(T elemento){
+        //Creamos un nuevo nodo en donde su apuntador sera el inicial de antes
         Nodo<T> aInsertar= new Nodo<>(elemento);
         aInsertar.setSiguiente(inicial);
         inicial=aInsertar;
@@ -43,6 +44,8 @@ public class ListaLigada<T> {
         else {
             Nodo<T> temp = inicial;
             int contador=0;
+            //REcorrer la lista hasta encontrar un nudod que apunte a null
+            //vas a dejar de contar hasta encontrar el último nodo
             while(temp!=null) {
                 contador++;
                 temp=temp.getSiguiente();
@@ -55,6 +58,7 @@ public class ListaLigada<T> {
         if(estaVacia())
             System.out.println("No puedes quitar elementos");
         else {
+            //haces que inicial ahora sea el que era su suguiente
             inicial=inicial.getSiguiente();
         }
     }
@@ -67,32 +71,43 @@ public class ListaLigada<T> {
                 inicial=null;
             }else {
                 Nodo<T> temp = inicial;
+                //Recorres la lista hasta encontrar el PENÚLTIMO elemento
+                //y al siguiente del penultimo, osea al ultimo, lo haces nulo
                 while (temp.getSiguiente().getSiguiente()!=null) {
                     temp=temp.getSiguiente();
                 }
+                //temp ahora es el que antes era el Ante penúltimo, por lo que
+                //al hacer su siguiente nulo se piderde el que antes era el
+                //ultimo 
                 temp.setSiguiente(null);
             }
 
         }
     }
 
+    //Este método es otra forma de quitar al final de la lista
     public void quitarAlFinalIndice() {
         if(contarElementos()==0) {
             System.out.println("No puedes borrar");
         }else if(contarElementos()==1) {
             quitarElPrimero();
         }else {
-            Nodo<T> penultimo= encontrarNodoEnIndice(contarElementos()-2);
-            penultimo.setSiguiente(null);
+            //cuentas todos tus elementos y les restas 2 para quedar en el ante
+            //antepenultimo y hacer al siguiente nulo, convirtiendolo en el
+            //ultimo
+            Nodo<T> antepenultimo= encontrarNodoEnIndice(contarElementos()-2);
+            antepenultimo.setSiguiente(null);
         }
     }
 
     public Nodo<T> encontrarNodoEnIndice(int indice){
         if(indice<contarElementos()) {
             Nodo<T> temp = inicial;
+            //El for es para "detenerse" en el lugar del nodo deseado
             for(int i=0;i<indice;i++) {
                 temp=temp.getSiguiente();
             }
+            //regresa el nodo del lugar del inidce
             return temp;
         }else {
             System.out.println("Index out of bounds");
@@ -134,7 +149,7 @@ public class ListaLigada<T> {
                 temp=temp.getSiguiente();
             }
         }
-    }
+    } 
 
     public void imprimeRec() {
         imprimeRecursivo(inicial);
