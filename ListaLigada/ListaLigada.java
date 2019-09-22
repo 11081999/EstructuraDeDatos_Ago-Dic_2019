@@ -25,7 +25,7 @@ public class ListaLigada<T> {
         //Aqui no tienes que volver a instancear el nodo porque ya lo
         //haces en el método insertarAlInicio
         if(estaVacia()){
-            elemento.insterarAlinicio(elemento);
+            insertarAlInicio(elemento);
         }else{
             //Vamos a recorer tod la lista hasta encontrar el último elemento
             //(el que es == null) 
