@@ -1,9 +1,9 @@
 public class Nodo<T> {
 
-    Private T elemento;
+    private T elemento;
     private Nodo<T> siguiente;
 
-    public Nodo<T>(T elemento){
+    public Nodo(T elemento){
         super();
         this.elemento=elemento;
     }
