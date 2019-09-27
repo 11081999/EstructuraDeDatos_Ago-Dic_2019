@@ -158,7 +158,7 @@ public class ListaLigada <T extends Comparable <T>> {
       public void imprimeRec() {
           imprimeRecursivo(inicial);
       }
-      
+
       private void imprimeRecursivo(Nodo<T> nodo) {
           if(nodo!=null) {
               System.out.println("Nodo: "+nodo.getElemento().toString());
@@ -168,6 +168,7 @@ public class ListaLigada <T extends Comparable <T>> {
 
 //-------------Algoritmos de busqueda---------------------------------//
 
+  // Linear Search
   public int busquedaLineal(T elemento) throws exception{
     Nodo<T> temp= inicial;
     if (estaVacia()){
@@ -187,10 +188,23 @@ public class ListaLigada <T extends Comparable <T>> {
   }
 
   //Bubble Sort
-  public void bubbleSort(Node<T> element){
-    for (int i= 0; i<; i++){
-      for (int j= 0; j<element.contarelementos()  ; j++){
+  private void intercambiar(int index1, int index2){
+    Nodo<T> temp= encontrarNodoEnIndice(index1);
+    T tempT= temp.getElemento();
+    Nodo<T> temp2= encontrarNodoEnIndice(index2);
+    temp.setElemento(temp2.getElemento());
+    temp2.setElemento(tempT);
+  }
 
+  public void bubbleSort(){
+    for (int i= 0; i<contarElementos()-1; i++){
+      boolean intercambiado=false;
+      for (int j= 0; j<elemento.contarelementos()-1; j++){
+        //encontrarElementoEnElindice falta
+        if(encontrarElementoEnElindice(j).CompareTo(encontrarElementoEnElindice(i)));
+        System.out.println("Se comabio el elemento"+encontrarElementoEnElindice(j)+"por el elemento"+encontrarElementoEnElindice(i));
+        intercambiar(j, j+1);
+        intercambioado= true;
       }
     }
   }
