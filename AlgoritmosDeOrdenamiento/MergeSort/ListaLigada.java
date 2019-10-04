@@ -162,6 +162,8 @@ public class ListaLigada<T> {
     }
     //----------------Algoritmos de Búsqueda----------------------///
 
+
+    //Merge Sort 
     public void mergeSort(){
       Nodo<T> inicioAnterior= inicial;
       mid= contarElementos()/2;
