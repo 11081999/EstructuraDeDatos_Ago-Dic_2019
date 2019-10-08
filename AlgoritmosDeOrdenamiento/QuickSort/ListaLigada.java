@@ -160,44 +160,9 @@ public class ListaLigada<T> {
             imprimeRecursivo(nodo.getSiguiente());
         }
     }
-    //----------------Algoritmos de Búsqueda----------------------///
+    //----------------Algoritmos de Ordenamiento----------------------///
 
+    //QuickSort
 
-    //Merge Sort
-    public Nodo<T> void mergeSort(){
-      Nodo<T> inicioAnterior= inicial;
-      mid= contarElementos()/2;
-
-      if (inicial.getSiguiente== null){
-        return inicial;
-      }
-
-      while(mid-1 > 0){
-        inicioAnterior= inicioAnterior.getSiguiente();
-        mid--;
-      }
-
-      Nodo<T> nuevoInicio= inicioAnterior.getSiguiente();
-      inicioAnterior.setSiguiente()= null;
-      inicioAnterior= inicial;
-      Nodo<T> temp1= mergeSort(inicioAnterior);
-      Nodo<T> temp2= mergeSort(nuevoInicio);
-
-      return merge(temp1, temp2);
-    }
-
-    private Nodo<T> merge(Nodo<T> a, Nodo<T> b){
-      if(a==null){
-        return b;
-      }
-      if(b==null){
-        return a;
-      }
-      if(a.getElemento().CompareTo(b.getElemento())>0){
-        resultado=b;
-        resultado.setSiguiente(merge.)
-      }
-
-    }
 
 }
