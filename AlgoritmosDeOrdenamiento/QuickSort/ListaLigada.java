@@ -163,6 +163,39 @@ public class ListaLigada<T> {
     //----------------Algoritmos de Ordenamiento----------------------///
 
     //QuickSort
+    public void quickSort(ListaLigada lista, int derecha, int izquierda){
+      int pivote= (izquierda+derecha)/2;
+      //primer elemento
+      int i= izquierda;
+      //ulitmo elemento
+      int j= derecha;
+      while(i<=j){
+        while(lista.encontrarNodoEnIndice(i)<pivote){
+          i++
+        }
+        while(lista.encontrarNodoEnIndice(j)>pivote){
+          j--
+        }
+        if(i<=j){
+          if(i!=j){
+            intercambiar(lista.encontrarNodoEnIndice(i), lista.encontrarNodoEnIndice(j))
+          }
+          i++
+          j--
+        }
+      }
+      while(){
+        if(izquierda<j){
+          quickSort(lista, izquierda, j);
+        }
+        if(i<derecha){
+          quickSort(lista, i, derecha);
+        }
+      }
+
+
+
+    }
 
 
 }
