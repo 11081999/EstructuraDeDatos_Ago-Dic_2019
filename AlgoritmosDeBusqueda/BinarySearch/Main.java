@@ -1,11 +1,13 @@
+
 public class Main {
-
 	public static void main(String args[]) {
-
-    Alumno t1<String> = new ListaLigada<>;
-    Alumno t2<String> = new ListaLigada<>;
-
-    t1.CompareTo(t2);
-
-  }
+		ListaLigada<Integer> lista= new ListaLigada<>();
+		lista.insertarAlUltimo(20);
+		lista.insertarAlUltimo(25);
+		lista.insertarAlUltimo(30);
+		lista.insertarAlUltimo(35);
+		lista.imprimeLista();
+		System.out.println("El elemento 40 esta en la pos: "+lista.busquedaBinaria(40));
+		System.out.println("El elemento 30 esta en la pos: "+lista.busquedaBinaria(30));
+	}
 }

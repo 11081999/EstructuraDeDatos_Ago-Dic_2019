@@ -160,6 +160,13 @@ public class ListaLigada<T> {
             imprimeRecursivo(nodo.getSiguiente());
         }
     }
+
+    private void swap(int index1, int index2){
+        T temp1= getNodeAtIndex(index1).getFirst();
+        T temp2= getNodeAtIndex(index2).getFirst();
+        getNodeAtIndex(index1).setFirst(temp2);
+        getNodeAtIndex(index2).setFirst(temp1);
+    }
     //----------------Algoritmos de Ordenamiento----------------------///
 
     //QuickSort
