@@ -188,4 +188,95 @@ public class ListaLigada<T extends Comparable<T>> {
     }
     return -1;
   }
+//________________Algoritmos de Orednamineto__________________________________//
+
+  //Este método intercambia los elementos que le das en una lista ligada
+  private void intercambiar(int index1, int index2) {
+		System.out.println("Se intercambia "+encontrarElementoEnElIndice(index1)+" con: "+encontrarElementoEnElIndice(index2));
+		Nodo<T> temp= encontrarNodoEnIndice(index1);
+		T tempT= temp.getElemento();
+		Nodo<T> temp2= encontrarNodoEnIndice(index2);
+		temp.setElemento(temp2.getElemento());
+		temp2.setElemento(tempT);
+	}
+
+	public void bubbleSort() {
+		for(int i=0;i<contarElementos()-1;i++) {
+			boolean intercambiado=false;
+			for(int j=0;j<contarElementos()-1; j++) {
+				if(encontrarElementoEnElIndice(j).compareTo(encontrarElementoEnElIndice(j+1))>0) {
+					intercambiar(j,j+1);
+					intercambiado=true;
+				}
+			}
+			if(!intercambiado) {
+				break;
+			}
+		}
+	}
+
+	public void selectionSort() {
+		for(int i=0;i<contarElementos()-1;i++) {
+			int masPequenio=i;
+			for(int j=i+1;j<contarElementos()-1;j++) {
+				if(encontrarElementoEnElIndice(j).compareTo(encontrarElementoEnElIndice(masPequenio))<0) {
+					masPequenio=j;
+				}
+			}
+			intercambiar(masPequenio,i);
+		}
+	}
+
+	public void insertionSort() {
+		int i=1;
+		while(i<contarElementos()) {
+			int j=i;
+			while(j>0 && encontrarElementoEnElIndice(j-1).compareTo(encontrarElementoEnElIndice(j))>0) {
+				intercambiar(j,j-1);
+				j=j-1;
+			}
+			i++;
+		}
+	}
+
+	public void mergeSort(){
+		inicial=mergeSortInterno(inicial);
+	}
+
+	private Nodo<T> mergeSortInterno(Nodo<T> inicial) {
+		Nodo<T> inicioAnterior= inicial;
+		int mid= contarElementos()/2;
+		System.out.println("Contar elementos: "+mid+" "+inicial.getElemento());
+		if(inicial.getSiguiente()==null) {
+			return inicial;
+		}
+
+		while(mid-1>0) {
+			inicioAnterior=inicioAnterior.getSiguiente();
+			mid--;
+		}
+		Nodo<T> nuevoInicio=inicioAnterior.getSiguiente();
+		inicioAnterior.setSiguiente(null);
+		inicioAnterior=inicial;
+		Nodo<T> temp1= mergeSortInterno(inicioAnterior);
+		Nodo<T> temp2= mergeSortInterno(nuevoInicio);
+		return merge(temp1,temp2);
+	}
+
+	public Nodo<T> merge(Nodo<T> a, Nodo<T> b){
+		Nodo<T> resultado;
+		if (a==null)
+			return b;
+		if(b==null)
+			return a;
+		if(a.getElemento().compareTo(b.getElemento())>0) {
+			resultado=b;
+			resultado.setSiguiente(merge(a,b.getSiguiente()));
+		}else {
+			resultado=a;
+			resultado.setSiguiente(merge(a.getSiguiente(),b));
+		}
+		return resultado;
+	}
+
 }
