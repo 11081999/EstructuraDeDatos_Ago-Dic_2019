@@ -32,24 +32,6 @@ public class ListaLigada<T extends Comparable<T>> {
 		}
 	}
 
-	public int busquedaBinaria(T elemento) {
-		int inicio=0;
-		int fin= contarElementos()-1;
-		while(inicio<=fin) {
-			int mitad= (inicio+fin)/2;
-			if(encontrarElementoEnElIndice(mitad).compareTo(elemento)==0) {
-				return mitad;
-			}else {
-				if(encontrarElementoEnElIndice(mitad).compareTo(elemento)>0) {
-					fin=mitad-1;
-				}else {
-					inicio=mitad+1;
-				}
-			}
-		}
-		return -1;
-	}
-
 	public int contarElementos() {
 		if(estaVacia())
 			return 0;
@@ -100,21 +82,10 @@ public class ListaLigada<T extends Comparable<T>> {
 		}
 	}
 
-	public Nodo<T> encontrarNodoEnIndice(int indice){
-		if(indice<contarElementos()) {
-			Nodo<T> temp = inicial;
-			for(int i=0;i<indice;i++) {
-				temp=temp.getSiguiente();
-			}
-			return temp;
-		}else {
-			System.out.println("Index out of bounds");
-			return null;
-		}
-	}
 	public T encontrarElUltimo() {
 		return encontrarElementoEnElIndice(contarElementos()-1);
 	}
+
 	public T encontrarElementoEnElIndice(int indice) {
 		return encontrarNodoEnIndice(indice).getElemento();
 	}
@@ -166,4 +137,39 @@ public class ListaLigada<T extends Comparable<T>> {
 
 	}
 
+}
+
+//________________Algoritmos de Búsqueda__________________________________//
+
+//Linear Search
+public Nodo<T> encontrarNodoEnIndice(int indice){
+  if(indice<contarElementos()) {
+    Nodo<T> temp = inicial;
+    for(int i=0;i<indice;i++) {
+      temp=temp.getSiguiente();
+    }
+    return temp;
+  }else {
+    System.out.println("Index out of bounds");
+    return null;
+  }
+}
+
+//Binary Search
+public int busquedaBinaria(T elemento) {
+  int inicio=0;
+  int fin= contarElementos()-1;
+  while(inicio<=fin) {
+    int mitad= (inicio+fin)/2;
+    if(encontrarElementoEnElIndice(mitad).compareTo(elemento)==0) {
+      return mitad;
+    }else {
+      if(encontrarElementoEnElIndice(mitad).compareTo(elemento)>0) {
+        fin=mitad-1;
+      }else {
+        inicio=mitad+1;
+      }
+    }
+  }
+  return -1;
 }
