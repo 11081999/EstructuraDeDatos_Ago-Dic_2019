@@ -3,7 +3,6 @@ public class Entrada<K,V> {
 	private K llave;
 	private V valor;
 
-
 	public Entrada(K llave, V valor) {
 		super();
 		this.llave = llave;
