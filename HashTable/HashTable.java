@@ -13,7 +13,7 @@ public class HashTable <K,V>{
 			tabla[posHas(key)]= new ListaLigada<>();
 		}
 		tabla[posHas(key)].insertarAlInicio(new Entrada(key,value));
-
+		System.out.println("Busqueda B"+tabla.busquedaBinaria(0));
 		/*
 		if(tabla[posHas(key)]==null)
 			tabla[posHas(key)]=new Entrada(key,value);
