@@ -192,7 +192,7 @@ public class ListaLigada<T extends Comparable<T>> {
 
   //Este método intercambia los elementos que le das en una lista ligada
   private void intercambiar(int index1, int index2) {
-		System.out.println("Se intercambia "+encontrarElementoEnElIndice(index1)+" con: "+encontrarElementoEnElIndice(index2));
+		System.out.println("Se intercambia "+encontrarElementoEnElIndice(index1)+" con:"+encontrarElementoEnElIndice(index2));
 		Nodo<T> temp= encontrarNodoEnIndice(index1);
 		T tempT= temp.getElemento();
 		Nodo<T> temp2= encontrarNodoEnIndice(index2);
@@ -278,5 +278,32 @@ public class ListaLigada<T extends Comparable<T>> {
 		}
 		return resultado;
 	}
+
+  public void quickSort(ListaLigada lista, int izquierda, int derecha){
+    int pivote= (derecha+izquierda)/2;
+    int i= izquierda;
+    int j= derecha;
+    while(i<=j){
+      while(lista.encontrarElementoEnElIndice(i) < lista.encontrarElementoEnElIndice(pivote)){
+        i++;
+      }
+      while(lista.encontrarElementoEnElIndice(j) > lista.encontrarElementoEnElIndice(pivote)){
+        j--;
+      }
+      if(i<=j){
+        if(i!=j){
+          intercambiar(lista.encontrarElementoEnElIndice(i), lista.encontrarElementoEnElIndice(j));
+        }
+        i++;
+        j--;
+      }
+    }
+    if(izquierda<j){
+      quickSort(lista, izquierda, j);
+    }
+    if(i<derecha){
+      quickSort(lista, i, derecha);
+    }
+  }
 
 }
