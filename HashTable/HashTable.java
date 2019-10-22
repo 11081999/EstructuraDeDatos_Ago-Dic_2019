@@ -1,3 +1,4 @@
+
 public class HashTable <K,V>{
 
 	private ListaLigada<Entrada<K,V>>[] tabla;
