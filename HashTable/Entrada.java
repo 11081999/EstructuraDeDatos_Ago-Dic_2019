@@ -1,7 +1,9 @@
+
 public class Entrada<K,V> {
 
 	private K llave;
 	private V valor;
+
 
 	public Entrada(K llave, V valor) {
 		super();
@@ -20,6 +22,12 @@ public class Entrada<K,V> {
 	public void setValor(V valor) {
 		this.valor = valor;
 	}
+	@Override
+	public String toString() {
+		return "Entrada [llave=" + llave + ", valor=" + valor + "]";
+	}
+
+
 
 
 }

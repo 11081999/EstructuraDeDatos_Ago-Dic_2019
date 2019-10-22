@@ -1,13 +1,19 @@
 public class HashTable <K,V>{
 
-	private Entrada<K,V>[] tabla;
+	private ListaLigada<Entrada<K,V>>[] tabla;
 
 	@SuppressWarnings("unchecked")
 	public HashTable() {
-		tabla= new Entrada[100];
+		tabla= new ListaLigada[100];
 	}
 
 	public void insertar(K key,V value) {
+		if(tabla[posHas(key)]==null) {
+			tabla[posHas(key)]= new ListaLigada<>();
+		}
+		tabla[posHas(key)].insertarAlInicio(new Entrada(key,value));
+
+		/*
 		if(tabla[posHas(key)]==null)
 			tabla[posHas(key)]=new Entrada(key,value);
 		else {
@@ -17,7 +23,7 @@ public class HashTable <K,V>{
 			}
 			tabla[i]=new Entrada(key,value);
 
-		}
+		}*/
 
 	}
 
@@ -27,7 +33,7 @@ public class HashTable <K,V>{
 			if(tabla[i]==null) {
 				System.out.println(i+".- Vacía");
 			}else {
-				System.out.println(i+".- "+tabla[i].getValor().toString());
+				System.out.println(i+".- "+tabla[i].toString());
 			}
 		}
 
@@ -38,6 +44,9 @@ public class HashTable <K,V>{
 	}
 
 	public int encontrar(K key) {
+		int pos=posHas(key);
+		//tabla[pos]
+		/*
 		int pos=posHas(key);
 		if(tabla[pos].getLlave().equals(key)) {
 			return pos;
@@ -50,6 +59,10 @@ public class HashTable <K,V>{
 			}
 		}
 		return i;
+		*/
+
+		//TODO
+		return 0;
 	}
 
 	private int posHas(K key) {
