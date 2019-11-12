@@ -12,8 +12,7 @@ public class HashTable <K,V>{
 		if(tabla[posHas(key)]==null) {
 			tabla[posHas(key)]= new ListaLigada<>();
 		}
-		tabla[posHas(key)].insertarAlInicio(new Entrada(key,value));
-		System.out.println("Busqueda B"+tabla.busquedaBinaria(0));
+		tabla[posHas(key)].insertarAlInicio(new Entrada(key,value)).mergeSort();
 		/*
 		if(tabla[posHas(key)]==null)
 			tabla[posHas(key)]=new Entrada(key,value);
